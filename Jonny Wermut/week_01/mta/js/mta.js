@@ -139,14 +139,14 @@ const directions = (l1, s1, l2, s2) => {
   let stationsToTravelSecond = []; //creates an empty array to store stations to travel in
   if(lineCheck(l1,l2)) { //Checks if stations are in the same line.
     stationsToTravelFirst = travelInstructionsSameLine(l1,s1,l2,s2); //Sets stations to travel first as stations to travel
-    console.log(`You must travel through the following stops on the ${lines[getLineArrayKey(l1)].name} line: ${stationsToTravelFirst}`); 
+    console.log(`You must travel through the following stops on the ${lines[getLineArrayKey(l1)].name} line: ${stationsToTravelFirst.join(', ')}.`); 
   }
   else { //what do we do if they're not on the same line?
     stationsToTravelFirst = travelInstructionsSameLine(l1,s1,l1,'Union Square');
-    console.log(`You must travel through the following stops on the ${lines[getLineArrayKey(l1)].name} line: ${stationsToTravelFirst}`);
-    console.log('Change at Union Square');
+    console.log(`You must travel through the following stops on the ${lines[getLineArrayKey(l1)].name} line: ${stationsToTravelFirst.join(', ')}.`);
+    console.log('Change at Union Square.');
     stationsToTravelSecond = travelInstructionsSameLine(l2,'Union Square',l2,s2);
-    console.log(`You must travel through the following stops on the ${lines[getLineArrayKey(l2)].name} line: ${stationsToTravelSecond}`);
+    console.log(`You must travel through the following stops on the ${lines[getLineArrayKey(l2)].name} line: ${stationsToTravelSecond.join(', ')}.`);
   }
 }
 

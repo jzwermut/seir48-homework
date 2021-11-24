@@ -80,9 +80,9 @@ const findLongestWords = (wordArray2, i) => {
 
 // // - Create two global arrays: one to hold the letters of the word (e.g. 'F', 'O', 'X'), and one to hold the current guessed letters (e.g. it would start with '\_', '\_', '\_' and end with 'F', 'O', 'X').
 
- const word = ['L','I','V','E','R','P','O','O','L'];
+ const word = ['F','O','X'];
  const guesses = [];
- let allGuesses = [];
+ const allGuesses = [];
 
 // // - Write a function called guessLetter that will:
 // // - Take one argument, the guessed letter.
@@ -105,7 +105,7 @@ const guessLetter = (guess) => {
 		console.log('You have already guessed that letter')
 	}
 	else {
-		for (i = 0; i < word.length; i++) { //iterates through word array
+		for (let i = 0; i < word.length; i++) { //iterates through word array
 			if (guess === word[i]) { //checks if guessed letter equals to the current letter in the word array
 				guesses.push(guess); //push the guessed letter to the guesses array if there is a match
 				allGuesses.push(guess);
@@ -115,6 +115,7 @@ const guessLetter = (guess) => {
 			else {
 				reward -= 5;
 				allGuesses.push(guess);
+			//	console.log(`${guess[i]} is not in the word`);
 			}
 		}
 		console.log(`The correct letters you have found so far are ${guesses}`); // - When it's done iterating, it should log the current guessed letters ('F__')

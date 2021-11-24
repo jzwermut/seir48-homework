@@ -1,18 +1,40 @@
 <h1>Listings</h1>
+<div class="all-listings">
+	<% @listings.each do |listing| %>
+		 <div class='card' style="width: 21rem;">
+		 		<%= image_tag (listing.image if listing.image.present?), :class => "card-img-top" %>
+		 	<div class="card-body">
+		 		<h5 class = "card-title"> <%= listing.name %> </h5>
+		 	</div>
+		 		<ul class = "list-group list-group-flush">
+			 		<li class="list-group-item">Price: $<%= listing.price %> </li>
+			 		<li class="list-group-item">Breeder: <%= link_to listing.breeder.name, breeder_path(listing.breeder.id) %> </li>
+			 		<li class="list-group-item">Location: <%= listing.breeder.city %> </li>
+			 		<% if listing.breed.present? %>
+			 		<li class="list-group-item">Breed: <%= listing.breed.name %> </li>
+			 		<% end %>
+			 		<li class="list-group-item"><%= listing.description %> </li>
+		 		</ul>
+		 	<div class="card-body">
+		 		<%= link_to 'See full listing', listing, :class => 'card-link' %> </li>
+		 	</div>
+		 </div>
+		<% end %>
+</div>
 
-<% @listings.each do |listing| %>
-	 <div class='listing'>
-	 	<div class="image">
-	 		<%= image_tag listing.image if listing.image.present? %>
-	 	</div>
-	 	<div class="info">
-	 		<ul>
-	 		<li> <%= listing.name %> </li> 
-	 		<li><%= listing.price %> </li>
-	 		<li><%= listing.availability %> </li>
-	 		<li><%= listing.description %> </li>
-	 		<li> <%= link_to 'See full listing', listing %> </li>
-	 		</ul>
-	 	</div>
-	 </div>
-	<% end %>
+<!-- <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div> -->

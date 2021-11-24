@@ -1,16 +1,20 @@
-<h1> <%= @breeder.name %></h1>
+<h2> <%= @breeder.name %></h2>
 
-<ul>
-<li> <%= @breeder.city %> </li> 
-<li> <%= @breeder.state %> </li> 
-<li> <%= image_tag @breeder.photo %> </li>
+<ul class="list-group">
+<li class="list-group-item"> <%= @breeder.city %> </li> 
+<li class="list-group-item"> <%= @breeder.state %> </li> 
+<li class="list-group-item"> <%= image_tag @breeder.photo %> </li>
+</ul>
+
+<br>
 
 <h2>Our breeds </h2>
 <% @breeder.breeds.each do |breed| %>
-<li> <%= breed.name %> </li>
-<li> <%= breed.origin %> </li>
+<ul class = "list-group">
+<li class="list-group-item"> <%= breed.name %> </li>
+<li class="list-group-item"> <%= breed.origin %> </li>
 <% if breed.photo.present? %>
-<li> <%= image_tag breed.photo %> </li>
+<li class="list-group-item"> <%= image_tag breed.photo %> </li>
 <% end %>
 <% end %>
 </ul>

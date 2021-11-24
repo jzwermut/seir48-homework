@@ -1,0 +1,8 @@
+reference
+
+petCards = parsed_page.css('article.list-block')
+firstPet = petCards.first
+name = firstPet.css('a')[1].text
+breeder = firstPet.css('dd').first.text
+location = firstPet.css('dd')[1].text
+description = firstPet.css('p')[1].text
